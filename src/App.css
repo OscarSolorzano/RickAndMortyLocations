@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+}
+
+
+body {
+  background-color: #47291C;
+  color: #F9F6EE;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
+.dflex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+/* Banner */
+
+.hero {
+  width: 100vw;
+  height: 20rem;
+  background-size: cover;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-image: url(/assets/rick-and-morty-banner.jpg);
+
+}
+
+.logo {
+  width: 60vw;
+  margin-top: 2rem;
+}
+
+.search-bar {
+  appearance: none;
+  border: none;
+  background: none;
+  background-color: #f9edc2;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  color: #47291C;
+  padding-left: 1rem;
+}
+
+.search-bar-drop{
+  appearance: none;
+  border: none;
+  background: none;
+  background-color: #f9edc2;
+  border-radius: 1rem 1rem 0 0;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  color: #47291C;
+  padding-left: 1rem;
+  border-style: none none solid ;
+  border-width: 1px;
+  border-color: #EB9605;
+}
+
+
+.dropdown{
+  background-color: #f9edc2;
+  width: 19.4rem;
+  color: #47291C;
+  z-index: 999;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.dropdown-row{
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  border-style: solid none none ;
+  border-width: 1px;
+  border-color: #EB9605;
+
+}
+/* Information about Location */
+
+
+
+.location-info {
+  background-color: #6e3e2a;
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 20rem;
+}
+
+
+h3 {
+  font-size: 1.7rem;
+  padding: 0.2rem;
+  padding-bottom: 1rem;
+  margin: 0;
+}
+
+.location-info p {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  padding-top: 1rem;
+  color: #EB9605;
+}
+
+.dimension {
+  border-style: none none solid;
+  border-width: 1px;
+}
+
+.residents {
+  border-style: solid none none;
+  border-width: 1px;
+}
+
+
+/* Resident Card */
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rsdnt-card {
+  width: 19rem;
+  background-color: #6e3e2a;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.image {
+  position: relative;
+  height: 19rem;
+  background-size: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+
+.status {
+  width: 7.5rem;
+  position: absolute;
+  top: 20px;
+  background-color: #6e3e2a;
+  padding: 0.2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+  margin-left: 0.25rem;
+}
+
+.rsdnt-card h2 {
+  text-align: left;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  border-style: none none solid;
+  border-width: 1px;
+}
+
+
+.rsdnt-info {
+  text-align: left;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+
+}
+
+.rsdnt-info h4 {
+  padding: 0;
+  margin: 0;
+  color: #EB9605;
+}
+
+.rsdnt-info p {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+/* footer */
+.coded-by{
+  padding: 3rem;
+}
+
+@media (min-width: 992px) {
+
+  /* Banner */
+
+
+  .logo {
+    width: 30rem;
+  }
+
+  .search-bar {
+    width: 40rem;
+  }
+
+  .search-bar-drop{
+    width: 40rem;
+  }
+
+  .dropdown{
+    width: 40rem;
+  }
+
+  /* Location Info */
+
+  .location-info {
+    display: flex;
+    flex-direction: row;
+    width: 40rem;
+    justify-content: space-evenly;
+  }
+
+  .dimension {
+    border-style: none solid none none;
+    padding-right: 1rem;
+  }
+
+  .residents {
+    border-style: none none none solid;
+    padding-left: 1rem;
+
+  }
+
+   /* Resident Info */
+
+  .rsdnt-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  ul {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  /* Banner */
+  .search-bar {
+    width: 52vw;
+  }
+
+  .search-bar-drop{
+    width: 52vw;
+  }
+
+  .dropdown{
+    width: 52vw;
+  }
+
+   /* Location Info */
+   .location-info {
+    width: 52vw;
+  }
+
+  
+
+
+ /* Resident Info */
+  ul {
+    width: 60vw;
+  }
+}
