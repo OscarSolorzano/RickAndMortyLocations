@@ -268,6 +268,41 @@ ul {
   }
 }
 
+/* Pagination */
+
+.pagination {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.pagination a {
+  color:#F9F6EE;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #47291C;
+  border: 1px solid #F9F6EE;
+}
+
+.pagination a.active {
+  background-color:#6e3e2a;
+  color:#EB9605;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #FDE5AC;
+}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 @media (min-width: 1200px) {
 
   /* Banner */
@@ -287,9 +322,6 @@ ul {
    .location-info {
     width: 52vw;
   }
-
-  
-
 
  /* Resident Info */
   ul {

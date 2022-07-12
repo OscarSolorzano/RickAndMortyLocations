@@ -5,10 +5,15 @@ import { useState } from 'react';
 import LocationInfo from './LocationInfo';
 import ResidentInfo from './ResidentInfo';
 import locations from '../locations.json';
+import Pagination from './Pagination';
 
 const RickAndMorty = () => {
     const [location, setLocation] = useState({});
     const [searchValue, setSearchValue] = useState('')
+    const [loading, setLoading] = useState(true)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [residentsPerPage, setResidentsPerPage] = useState(9)
+
     useEffect(() => {
         const random = Math.floor(Math.random() * 126) + 1;
         axios.get(`https://rickandmortyapi.com/api/location/${random}`)
@@ -19,6 +24,7 @@ const RickAndMorty = () => {
     const searchLocation = () => {
         axios.get(`https://rickandmortyapi.com/api/location/${searchValue}`)
             .then(res => setLocation(res.data))
+            setSearchValue('')   
     }
 
     const onSearch = (loc) =>{
@@ -27,6 +33,14 @@ const RickAndMorty = () => {
             .then(res => setLocation(res.data))
             setSearchValue('')   
     }
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+    const indexOfLastResident = currentPage * residentsPerPage
+    const indexOfFirstResident = indexOfLastResident - residentsPerPage
+    const currentResidents = location.residents?.slice(indexOfFirstResident,indexOfLastResident)
+
+
     return (
         <div>
             <div className='hero dflex-column'>
@@ -65,12 +79,18 @@ const RickAndMorty = () => {
             <LocationInfo location={location}/>
             <div className='rsdnt-container'>
             <ul>
-                {location.residents?.map(charUrl => (
+                {currentResidents?.map(charUrl => (
                     <ResidentInfo charUrl={charUrl}
                         key={charUrl} />
                 ))}
             </ul>
             </div>
+            <Pagination 
+            residentsPerPage={residentsPerPage}
+            totalResidents={location.residents?.length}
+            currentPage={currentPage}
+            paginate={paginate}
+            />
             <div className='coded-by'>
                 <p>Coded by Oscar Solorzano</p>
             </div>
