@@ -27,7 +27,7 @@ const Pagination = ({residentsPerPage, totalResidents, paginate, currentPage}) =
             {pageNumbers.map(number => (
                 <a
                 className={currentPage === number && 'active'}
-                 onClick={() => paginate(number)} href='!#' 
+                 onClick={() => paginate(number)} href='#' 
                  >{number}</a>
             ))}
             <a onClick={nextPage}>&#62;</a>
