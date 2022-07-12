@@ -24,21 +24,21 @@ const RickAndMorty = () => {
     const searchLocation = () => {
         axios.get(`https://rickandmortyapi.com/api/location/${searchValue}`)
             .then(res => setLocation(res.data))
-            setSearchValue('')   
+        setSearchValue('')
     }
 
-    const onSearch = (loc) =>{
+    const onSearch = (loc) => {
         setSearchValue(loc.name)
         axios.get(`https://rickandmortyapi.com/api/location/${loc.id}`)
             .then(res => setLocation(res.data))
-            setSearchValue('')   
+        setSearchValue('')
     }
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const indexOfLastResident = currentPage * residentsPerPage
     const indexOfFirstResident = indexOfLastResident - residentsPerPage
-    const currentResidents = location.residents?.slice(indexOfFirstResident,indexOfLastResident)
+    const currentResidents = location.residents?.slice(indexOfFirstResident, indexOfLastResident)
 
 
     return (
@@ -46,7 +46,7 @@ const RickAndMorty = () => {
             <div className='hero dflex-column'>
                 <img className='logo' src="/assets/Rick-and-Morty.png" />
                 <input
-                    className={searchValue ==='' ? 'search-bar':'search-bar-drop'}
+                    className={searchValue === '' ? 'search-bar' : 'search-bar-drop'}
                     type={'text'}
                     placeholder={'Type a location or id..'}
                     value={searchValue}
@@ -58,38 +58,38 @@ const RickAndMorty = () => {
                     }}
                 />
                 <div className='dropdown'>
-                    {locations.filter(loc=>{
+                    {locations.filter(loc => {
                         const searchVal = searchValue.toLocaleLowerCase()
                         const name = loc.name.toLocaleLowerCase()
-                        return name.startsWith(searchVal)&& 
-                        name !== searchVal &&
-                        '' !== searchVal
+                        return name.startsWith(searchVal) &&
+                            name !== searchVal &&
+                            '' !== searchVal
                     })
-                    .slice(0,10)
-                    .map(loc =>(
-                        <div
-                         onClick={()=>onSearch(loc)} 
-                         className='dropdown-row'
-                         key={loc.id}>
-                            {loc.name}
-                        </div>
-                    ))}
+                        .slice(0, 10)
+                        .map(loc => (
+                            <div
+                                onClick={() => onSearch(loc)}
+                                className='dropdown-row'
+                                key={loc.id}>
+                                {loc.name}
+                            </div>
+                        ))}
                 </div>
             </div>
-            <LocationInfo location={location}/>
+            <LocationInfo location={location} />
             <div className='rsdnt-container'>
-            <ul>
-                {currentResidents?.map(charUrl => (
-                    <ResidentInfo charUrl={charUrl}
-                        key={charUrl} />
-                ))}
-            </ul>
+                <ul>
+                    {currentResidents?.map(charUrl => (
+                        <ResidentInfo charUrl={charUrl}
+                            key={charUrl} />
+                    ))}
+                </ul>
             </div>
-            <Pagination 
-            residentsPerPage={residentsPerPage}
-            totalResidents={location.residents?.length}
-            currentPage={currentPage}
-            paginate={paginate}
+            <Pagination
+                residentsPerPage={residentsPerPage}
+                totalResidents={location.residents?.length}
+                currentPage={currentPage}
+                paginate={paginate}
             />
             <div className='coded-by'>
                 <p>Coded by Oscar Solorzano</p>
